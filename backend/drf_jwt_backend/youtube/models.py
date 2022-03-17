@@ -12,3 +12,9 @@ class Youtube_comment(models.Model):
     text = models.CharField(max_length=100)
     likes = models.IntegerField()
     dislikes = models.IntegerField()
+    
+
+class Youtube_reply(models.Model):
+    User = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.ForeignKey(Youtube_comment, on_delete=models.CASCADE)
+    text = models.CharField(max_length=255)

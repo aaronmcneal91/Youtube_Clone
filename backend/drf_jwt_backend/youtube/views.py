@@ -3,16 +3,14 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
-
-from backend.drf_jwt_backend.youtube.reply_model import Youtube_reply
-from .comment_models import Youtube_comment,  
+from .models import Youtube_comment, Youtube_reply
 from .serializers import Youtube_reply_Seralizer, Youtube_comment_Serializer
 
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
 
 @api_view(['GET', 'POST'])
-def youtube_list(request):
+def comment_list(request):
 
     if request.method == 'GET':
         youtube = Youtube_comment.objects.all()
@@ -27,7 +25,7 @@ def youtube_list(request):
 
 
 @api_view(['GET','PUT','DELETE'])
-def youtube_detail(request,pk):
+def comment_detail(request,pk):
     youtube = get_object_or_404 (Youtube_comment, pk=pk)
     if request.method =='GET':      
         serializer = Youtube_comment_Serializer(youtube)
@@ -45,7 +43,7 @@ def youtube_detail(request,pk):
 
 
 @api_view(['GET', 'POST'])
-def youtube_detail(request):
+def reply_list(request):
 
     if request.method == 'GET':
         youtube = Youtube_reply.objects.all()
@@ -60,7 +58,7 @@ def youtube_detail(request):
 
 
 @api_view(['GET','PUT','DELETE'])
-def youtube_detail(request,pk):
+def reply_detail(request,pk):
     youtube = get_object_or_404(youtube, pk=pk)
     if request.method =='GET':      
         serializer = Youtube_reply_Seralizer(youtube)
@@ -73,3 +71,6 @@ def youtube_detail(request,pk):
     elif request.method =='DELETE':
         youtube.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+# create endpoint to retrieve all replies to specific comment_id
+# .filter() by comment_id

@@ -1,7 +1,6 @@
 from django.contrib import admin
-
-from backend.drf_jwt_backend.youtube.reply_model import Youtube_reply
-from .comment_models import Youtube_comment
+from .models import Youtube_comment, Youtube_reply
 
 # Register your models here.
-admin.site.register(Youtube_comment,Youtube_reply)
+admin.site.register(Youtube_comment)
+admin.site.register(Youtube_reply)

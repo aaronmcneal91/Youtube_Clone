@@ -1,8 +1,6 @@
 from dataclasses import fields
 from rest_framework import serializers
-
-from backend.drf_jwt_backend.youtube.reply_model import Youtube_reply
-from .comment_models import Youtube_reply, Youtube_comment
+from .models import Youtube_reply, Youtube_comment
 
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
