@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from .models import Car
+from .comment_models import Youtube
 
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
 
-class CarSerializer(serializers.ModelSerializer):
+class YoutubeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Car
+        model = Youtube
         fields = ['id', 'make', 'model', 'year', 'user_id']
         depth = 1
