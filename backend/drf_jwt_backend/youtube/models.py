@@ -18,3 +18,6 @@ class Youtube_reply(models.Model):
     User = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.ForeignKey(Youtube_comment, on_delete=models.CASCADE)
     text = models.CharField(max_length=255)
+
+class Youtube_filter(models.Model):
+    comment = models.ForeignKey(Youtube_comment, on_delete=models.CASCADE)

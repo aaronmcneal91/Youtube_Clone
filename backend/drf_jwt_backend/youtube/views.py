@@ -36,7 +36,7 @@ def comment_detail(request,pk):
         serializer.save()
         return Response(serializer.data)
     elif request.method =='DELETE':
-        youtube_detail.delete()
+        comment_detail.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
@@ -69,8 +69,15 @@ def reply_detail(request,pk):
         serializer.save()
         return Response(serializer.data)
     elif request.method =='DELETE':
-        youtube.delete()
+        reply_detail.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
+@api_view(['GET'])
+def find_comment(request,pk):
+    if request.method == 'GET':
+        youtube = Youtube_comment.objects.filter(comment_detail)
+        serializer = Youtube_comment_Serializer(youtube, many=True)
+        return Response (serializer.data)
 # create endpoint to retrieve all replies to specific comment_id
 # .filter() by comment_id
