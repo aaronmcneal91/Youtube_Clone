@@ -2,8 +2,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from rest_framework.decorators import api_view, permission_classes
-from .models import Youtube_comment, Youtube_reply
+from rest_framework.decorators import api_view
+from .models import Youtube_comment, Youtube_reply, Youtube_filter
 from .serializers import Youtube_reply_Seralizer, Youtube_comment_Serializer
 
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
@@ -36,7 +36,7 @@ def comment_detail(request,pk):
         serializer.save()
         return Response(serializer.data)
     elif request.method =='DELETE':
-        comment_detail.delete()
+        youtube.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
@@ -79,12 +79,12 @@ def reply_detail(request,pk):
 #     if request.method =='VIEW':
 #         serializer = Youtube_comment_Serializer(comment_list = request.filter)
 #         return Response(serializer.data)
-@api_view(['GET'])
-def find_comment(request,pk):
-    if request.method == 'GET':
-        youtube = Youtube_comment.objects.filter(comment_detail)
-        serializer = Youtube_comment_Serializer(youtube, many=True)
-        return Response (serializer.data)
+# @api_view(['GET'])
+# def find_comment(request,pk):
+#     if request.method == 'GET':
+#         youtube = Youtube_comment.objects.filter(comment_detail)
+#         serializer = Youtube_comment_Serializer(youtube, many=True)
+#         return Response (serializer.data)
 
 
 
