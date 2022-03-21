@@ -14,3 +14,12 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+
+// function find_comment(arrayOfComments, comment){
+//   let replies = arrayOfComments.map(find_comment(element){
+//       return element + " " + comment;
+
+//   })
+//   return replies
+// }

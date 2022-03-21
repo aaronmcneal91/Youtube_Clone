@@ -20,7 +20,7 @@ def comment_list(request):
     elif request.method == 'POST':
         serializer = Youtube_comment_Serializer(data = request.data)
         serializer.is_valid(raise_exception = True)
-        serializer.save()
+        serializer.save(user=request.user)
         return Response(serializer.data, status = status.HTTP_201_CREATED)
 
 
@@ -53,7 +53,7 @@ def reply_list(request):
     elif request.method == 'POST':
         serializer = Youtube_reply_Seralizer(data = request.data)
         serializer.is_valid(raise_exception = True)
-        serializer.save()
+        serializer.save(user=request.user)
         return Response(serializer.data, status = status.HTTP_201_CREATED)
 
 
@@ -81,3 +81,20 @@ def find_comment(request,pk):
         return Response (serializer.data)
 # create endpoint to retrieve all replies to specific comment_id
 # .filter() by comment_id
+# @api_view(['VIEW'])
+# def replies_view(request,fk):
+#     if request.method =='VIEW':
+#         serializer = Youtube_comment_Serializer(comment_list = request.filter)
+#         return Response(serializer.data)
+@api_view(['GET'])
+def find_comment(request,pk):
+    if request.method == 'GET':
+        youtube = Youtube_comment.objects.filter(comment_detail)
+        serializer = Youtube_comment_Serializer(youtube, many=True)
+        return Response (serializer.data)
+
+
+
+
+    
+  
