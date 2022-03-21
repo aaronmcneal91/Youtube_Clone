@@ -65,16 +65,20 @@ def reply_detail(request,id):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
-    elif request.method == 'POST':
-        request.data['comment_id'] = id
-        serializer = Youtube_reply_Seralizer(data = request.data)
-        serializer.is_valid(raise_exception = True)
-        serializer.save(user_id = request.user)
-        return Response(serializer.data, status = status.HTTP_201_CREATED)
     elif request.method =='DELETE':
         youtube.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
+@api_view(['POST'])
+def new_reply(request,comment_id):
+    if request.method == 'POST':
+        reply_data = request.data
+        reply_data['comment_id'] = comment_id
+        serializer = Youtube_reply_Seralizer(data = reply_data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user_id = request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 # create endpoint to retrieve all replies to specific comment_id
 # .filter() by comment_id
 # @api_view(['VIEW'])

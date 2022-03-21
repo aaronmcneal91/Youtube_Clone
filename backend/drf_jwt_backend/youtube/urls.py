@@ -7,5 +7,6 @@ urlpatterns = [
     path('<int:pk>/', views.comment_detail),
     path('reply/', views.reply_list),
     path('reply/<int:id>/', views.reply_detail),
+    path('newreply/<int:comment_id>/', views.new_reply)
 ]
 
