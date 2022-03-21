@@ -15,7 +15,8 @@ class Youtube_reply_Seralizer(serializers.ModelSerializer):
     class Meta:
         model = Youtube_reply
         fields = ['id', 'user_id','comment_id','text']
-        depth = 1
+        #depth = 1
+    comment_id = serializers.IntegerField(write_only = True)
 
 
     class Youtube_filter_Seralizer(serializers.ModelSerializer):
