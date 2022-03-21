@@ -15,8 +15,8 @@ class Youtube_comment(models.Model):
 
 
 class Youtube_reply(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    comment = models.ForeignKey(Youtube_comment, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment_id = models.ForeignKey(Youtube_comment, on_delete=models.CASCADE)
     text = models.CharField(max_length=255)
 
 class Youtube_filter(models.Model):
