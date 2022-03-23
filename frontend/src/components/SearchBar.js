@@ -1,6 +1,6 @@
 import React from "react";
 import "./SearchBar.css";
-
+import { BrowserRouter } from "react-router-dom";
 
 
 
@@ -28,7 +28,13 @@ class SearchBar extends React.Component {
         return(
             // <Paper elevation= {6} style={{padding: '25px'}} >
                 <form onSubmit={this.handleSubmit}>
-                    <textarea fullWidth label="Search..." onChange={this.handleChange} />
+                    <textarea fullwidth label="Search..." onChange={this.handleChange} />
+                    {/* <BrowserRouter> */}
+                    <button>Search</button>
+                    
+
+                    
+                     
                 </form>
 
             // </Paper>
