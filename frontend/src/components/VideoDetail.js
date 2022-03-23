@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Paper, Typography} from '@mui/material'
+
 
 const VideoDetail = ({video}) => {
     if(!video) return <div>Loading...</div>
@@ -8,16 +8,19 @@ const VideoDetail = ({video}) => {
     const videoSrc =`https://www.youtube.com/embed/${video.id.videoId}` 
 
     return (
-        <React.Fragment>
-            <Paper elevation={6} style={{ height: '70%' }}>
-                <iframe frameBorder= "0" height="100%" width="100%" title="Video Player" src ={videoSrc}/>
-            </Paper>
-            <Paper elevation={6} style ={{ padding: '15px'}}> 
-                <Typography variant="h4">{video.snippet.title} - {video.snippet.chanelTitle}</Typography>
-                <Typography variant="subtitle1">{video.snippet.chanelTitle}</Typography>
-                <Typography variant="subtitle2">{video.snippet.description}</Typography>
-            </Paper>
-        </React.Fragment>
+        <div>
+             <iframe frameBorder= "0" height="100%" width="100%" title="Video Player" src ={videoSrc}/>
+         
+         
+                <div variant="h4">{video.snippet.title} - {video.snippet.chanelTitle}</div>
+                <div variant="subtitle1">{video.snippet.chanelTitle}</div>
+                <div variant="subtitle2">{video.snippet.description}</div>
+        </div>
+        // <React.Fragment>
+        //     <Paper elevation={6} style={{ height: '70%' }}>
+               
+        //     </Paper>
+        // </React.Fragment>
     )
 }
 

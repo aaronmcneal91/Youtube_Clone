@@ -1,16 +1,18 @@
 import React from "react";
-import {Grid} from '@mui/material';
-import VideoItem from "./VideoItem";
+
+import VideoItem from "./videoItem";
 
 
-const VideoList = ({ videos, onVideoSelect }) => {
-    const listOfVideos = videos.map((video, id) => <VideoItem onVideoSelect={onSelectVideo} key={id}/>)
+const VideoList = ({ videos, videoSelect }) => {
+    const listOfVideos = videos.map((video, id) => <VideoItem videoSelect={videoSelect} key={id}/>)
 
     return(
-        <grid container spacing={10}>
-            {listOfVideos}
+        <>  
+          {listOfVideos}
+        </>
+        
 
-        </grid>
+
     
         
 
