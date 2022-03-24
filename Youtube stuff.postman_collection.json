@@ -1,0 +1,25 @@
+{
+	"info": {
+		"_postman_id": "3ad79a03-349e-4a62-8ab0-e03564f01634",
+		"name": "Youtube stuff",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get_Video_Search",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "related Videos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

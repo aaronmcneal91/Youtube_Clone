@@ -17,6 +17,9 @@ const SearchBar = () => {
         )
 }
 
+
+
+
 class blank extends React.Component {
     state = {
         searchTerm: '',
