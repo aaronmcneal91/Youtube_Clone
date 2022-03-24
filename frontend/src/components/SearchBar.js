@@ -1,13 +1,38 @@
-import React from "react";
-import "./SearchBar.css";
-import { BrowserRouter } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
+// import React from "react";
+// import "./SearchBar.css";
+// import { useState } from "react";
+
+// const SearchBar = (props) => {
+
+// const[searchRequest, setSearchRequest] = useState('')
+
+// const handleSubmit = (event) =>{
+// event.preventDefault();
+// props.getSearchResults(searchRequest);
+// }
+
+//     return (
+//         <form>
+//             <div>
+//                 <input type="text" placeholder="Search Youtube" value={searchRequest} onChange={(event) => setSearchRequest(event.target.value)} />
+
+//             </div>
+//             <button onClick={handleSubmit} type="submit"> Search </button>
+//         </form>
+//     );
+        
+// }
+
+// export default SearchBar;
+
+
+
+
+
 
 // const SearchBar = () => {
 //     const [data , setData] = useState(null); // data is our actual variable, setData is a function
-                                       // setData() will allow you to pass in any value and will save it to data 
+//                                        setData() will allow you to pass in any value and will save it to data 
 
 //     useEffect(() => {
 //         fetch("https://www.googleapis.com/youtube/v3'")
@@ -17,29 +42,7 @@ import axios from "axios";
 
 //         )
 // }
-function SearchBar() {
 
-const [searchResults, setSearchResults] = useState(['']);
-
-useEffect(() => {
-    getSearchResults()
-},[])
-
-
-async function getSearchResults(searchTerm="dogs"){
-    let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&type=video&maxResults=5&key=AIzaSyDWtRZ0DbDR4RMEIS1F9Bjp_FkhuecPsIs`);
-    console.log(response.data)
-    setSearchResults(response.data)
-}
-    return (
-        <div className="SearchBar">
-
-        </div>
-    )    
-    
-}
-
-export default SearchBar;
 
 // class SearchBar extends React.Component {
 //     state = {
@@ -80,3 +83,4 @@ export default SearchBar;
 // }
 
 // export default SearchBar
+// }
