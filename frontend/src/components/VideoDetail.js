@@ -2,20 +2,16 @@ import React from "react";
 
 
 
-const VideoDetail = ({video}) => {
-    if(!video) return <div>Loading...</div>
-
-    const videoSrc =`https://www.youtube.com/embed/${video.id.videoId}` 
+const VideoDetail = (props) => {
+   
+    const videoId = props.currentVideoId
 
     return (
-        <div>
-             <iframe frameBorder= "0" height="100%" width="100%" title="Video Player" src ={videoSrc}/>
-         
-         
-                <div variant="h4">{video.snippet.title} - {video.snippet.chanelTitle}</div>
-                <div variant="subtitle1">{video.snippet.chanelTitle}</div>
-                <div variant="subtitle2">{video.snippet.description}</div>
-        </div>
+      <div>
+          <iframe id="ytplayer" type="text/html" width="640" height="360"
+  src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
+  frameBorder="0"></iframe>
+      </div>
 
     )
 }

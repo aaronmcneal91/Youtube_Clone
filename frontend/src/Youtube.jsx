@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import youtube from "./api/youtube";
+
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -9,7 +9,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import { VideoDetail, VideoList } from "./components";
-import SearchBar from "./components/Search";
+import NewSearchBar from "./components/NewSearchBar";
 // Util Imports
 
 import { useState, useEffect } from "react";
@@ -23,7 +23,7 @@ import axios from "axios";
 function Search() {
 
     const [searchResults, setSearchResults] = useState([]);
-    const [currentVideo, setCurrentVideo] = useState([]);
+    const [currentVideoId, setCurrentVideo] = useState("x79XHJFo0ls");
     
     useEffect(() => {
         getSearchResults()
@@ -32,7 +32,7 @@ function Search() {
     
     async function getSearchResults(searchTerm="dogs"){
         let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&type=video&maxResults=5&key=AIzaSyDWtRZ0DbDR4RMEIS1F9Bjp_FkhuecPsIs`);
-        
+        console.log(response.data.items)
         setSearchResults(response.data.items)
     }
     return (
@@ -40,13 +40,13 @@ function Search() {
                   {/* <Grid item xs={12}>
                     <Grid container spacing={10}>
                       <Grid item xs={12}> */}
-                        <Search />
+                      <NewSearchBar getSearchResults={getSearchResults}/>
                        
                         
                       
                       {/* </Grid>
                       <Grid item xs={8}> */}
-                        <VideoDetail />
+                        <VideoDetail currentVideoId={currentVideoId}/>
                       {/* </Grid>
                       <Grid item xs={4}> */}
                         <VideoList 
