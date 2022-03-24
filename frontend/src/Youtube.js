@@ -11,7 +11,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import { Grid } from '@mui/material';
-import { SearchBar, VideoDetail, VideoList } from "./components";
+import {SearchBar,  VideoDetail, VideoList } from "./components";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
