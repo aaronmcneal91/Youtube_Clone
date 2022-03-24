@@ -1,34 +1,43 @@
 import React from "react";
+import "./SearchBar.css";
+import { BrowserRouter } from "react-router-dom";
 
-import {Paper, TextField } from '@mui/material'
 
-class SearchBar extends React.component {
+
+class SearchBar extends React.Component {
     state = {
         searchTerm: '',
 
     }
-    handleChange = (event) => {this.setState({searchTerm: event.target.value})
+    handleChange = (event) => {this.setState({searchTerm: event.target.value})}
 
-    handleSubmit = () => {
-        const {searchTerm}= this.state;
-        const { onFormSubmit} = this.props;
-
-        onFormSubmit(searchTerm);
-
+    handleSubmit = (event) => {
         event.preventDefault();
+        const {searchTerm}= this.state;
+        const { formSubmit} = this.props;
+
+        formSubmit(searchTerm);
+
         
 
-    }
 
     }
+
+    
     render(){
         return(
-            <Paper elevation= {6} style={{padding: '25px'}} >
+            // <Paper elevation= {6} style={{padding: '25px'}} >
                 <form onSubmit={this.handleSubmit}>
-                    <TextField fullWidth label="Search..." onChange={this.handleChange} />
+                    <textarea fullwidth label="Search..." onChange={this.handleChange} />
+                    {/* <BrowserRouter> */}
+                    <button>Search</button>
+                    
+
+                    
+                     
                 </form>
 
-            </Paper>
+            // </Paper>
         )
     }
 }

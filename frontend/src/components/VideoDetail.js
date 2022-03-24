@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import {Paper, Typography} from '@mui/material'
 
 const VideoDetail = ({video}) => {
+    if(!video) return <div>Loading...</div>
+
+    const videoSrc =`https://www.youtube.com/embed/${video.id.videoId}` 
+
     return (
         <React.Fragment>
             <Paper elevation={6} style={{ height: '70%' }}>
