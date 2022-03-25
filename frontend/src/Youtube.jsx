@@ -25,7 +25,7 @@ function Search() {
 
     const [searchResults, setSearchResults] = useState([]);
     const [currentVideoId, setCurrentVideo] = useState("x79XHJFo0ls");
-    const [relatedVideoId , setRelatedVideo] = useState("")
+    const [RelatedVideo , setRelatedVideo] = useState([])
     
     useEffect(() => {
         getSearchResults()
@@ -57,7 +57,7 @@ function Search() {
                         />
 
                         <RelatedVideo
-                        searchResults = {setSearchResults}
+                        searchResults = {searchResults}
                         setRelatedVideo = {setRelatedVideo}
                         />
                       {/* </Grid>
