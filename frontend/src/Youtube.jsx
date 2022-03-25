@@ -14,6 +14,7 @@ import NewSearchBar from "./components/NewSearchBar";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import RelatedVideo from "./components/RelatedVideos";
 
 
 //function YouTube(props){
@@ -24,6 +25,7 @@ function Search() {
 
     const [searchResults, setSearchResults] = useState([]);
     const [currentVideoId, setCurrentVideo] = useState("x79XHJFo0ls");
+    const [relatedVideoId , setRelatedVideo] = useState("")
     
     useEffect(() => {
         getSearchResults()
@@ -52,6 +54,11 @@ function Search() {
                         <VideoList 
                         searchResults={searchResults}
                         setCurrentVideo={setCurrentVideo}
+                        />
+
+                        <RelatedVideo
+                        searchResults = {setSearchResults}
+                        setRelatedVideo = {setRelatedVideo}
                         />
                       {/* </Grid>
                     </Grid>
